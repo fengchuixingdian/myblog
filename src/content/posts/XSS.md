@@ -285,7 +285,7 @@ CSS 不会直接执行 JavaScript，如果你在 style="background:你的输入"
 
 > <script>alert(‘XSS’)</script>    弹窗测试（仅验证漏洞存在）
 >
-> <img src=x onerror =alert(‘XSS’)>   无scirpt标签的XSS（绕过简单过滤），图片加载失败触发`onerror`执行脚本
+>  无scirpt标签的XSS（绕过简单过滤），图片加载失败触发`onerror`执行脚本
 >
 > ```html
 > <svg onload=alert(1)>       #svg 标签 onload
@@ -315,7 +315,7 @@ CSS 不会直接执行 JavaScript，如果你在 style="background:你的输入"
 
 用“检查”（F12）来看过滤的内容，属性与字符串（用颜色区分）
 
-**修改 Payload**:用不触发浏览器过滤器的方式：http://test.ctf8.com/level1.php?name=<img src=x onerror=alert(1)>
+**修改 Payload**:用不触发浏览器过滤器的方式：http://test.ctf8.com/level1.php?name
 
 浏览器会拦截http://test.ctf8.com/level1.php?name=<script>alert(`1`)</script>
 
@@ -378,11 +378,11 @@ echo "<h2 align=center>没有找到和".htmlspecialchars($str)."相关的结果.
 
 用test “
 
-![image-20260519092120974](./assets/image-20260519092120974.png)
+
 
 用test ‘
 
-![image-20260519092211500](./assets/image-20260519092211500.png)
+
 
 这里发现单引号当作了字符串，而双引号被“踢”出。
 
@@ -479,13 +479,11 @@ if(false===strpos($str7,'http://'))
 
 ### Less-10:隐藏输入框，修改HTML属性（GET）
 
-![image-20260519175104233](./assets/image-20260519175104233.png)
 
-![image-20260519175037650](./assets/image-20260519175037650.png)
 
 通过尝试了方法找注入点：http://test.ctf8.com/level10.php?keyword=well%20d&t_link=123&t_history=362&t_sort=321
 
-![image-20260519175203510](./assets/image-20260519175203510.png)
+
 
 `"` onfocus="alert(1)" autofocus type="text
 
