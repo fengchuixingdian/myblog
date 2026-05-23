@@ -55,7 +55,7 @@ draft: false
 
 5. JSONP回调（我对于这个了解不深）
 
-   ```text
+   ```markdown
    http://challenge.com/api?callback=<img src=x onerror=alert(1)>
    ```
 
@@ -116,7 +116,7 @@ draft: false
 
    大小写混写，双写关键字，自定义标签
 
-   ```html
+   ```markdown
    #自定义标签示例
    <xyz onmouseover=alert(1)>hover
    ```
@@ -393,7 +393,7 @@ echo "<h2 align=center>没有找到和".htmlspecialchars($str)."相关的结果.
 
 JavaScript 伪协议（`javascript:`）**本质是浏览器执行内联脚本的快捷方式**，因其能绕过基础过滤而成为 XSS 攻击的常用载体
 
-```pjp
+```php
 #支持伪协议的标签
 <a href="javascript:alert('触发XSS')">点击测试</a>
 <iframe src="javascript:console.log('iframe执行')"></iframe>
