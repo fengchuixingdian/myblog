@@ -1,4 +1,12 @@
-# SQL注入
+---
+title: sql注入
+published: 2025-05-23
+description: 这是文章的简短描述
+category: 信息安全
+draft: false
+---
+
+#  SQL注入
 
 ### 原理
 

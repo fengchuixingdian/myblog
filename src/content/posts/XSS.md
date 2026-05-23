@@ -1,3 +1,11 @@
+---
+title: XSS
+published: 2025-05-23
+description: 这是文章的简短描述
+category: 信息安全
+draft: false
+---
+
 # XSS
 
 攻击者往web页面插入恶意的Script代码，当用户浏览此页时嵌入到web页面的script代码就会被执行，一般不会威胁到后台
