@@ -9,6 +9,7 @@ import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSanitize from "rehype-sanitize";
 import rehypeComponents from "rehype-components"; /* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
 import katex from "katex";
@@ -244,6 +245,7 @@ export default defineConfig({
 					},
 				},
 			],
+			rehypeSanitize,
 		],
 	},
 	vite: {

